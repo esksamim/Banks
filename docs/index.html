@@ -3,232 +3,462 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Banks - Official .bank.in Domains</title>
+    <title>Indian Banks - Secure .bank.in Directory</title>
     <style>
-        :root {
-            --bg-color: #ffffff;
-            --alt-row: #f4f7f9; /* Soft dark/grey for alternating rows */
-            --border-color: #e0e0e0;
-            --header-bg: #2c3e50;
-            --header-text: #ffffff;
-            --link-color: #0066cc;
-            --text-main: #333333;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--bg-color);
-            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             padding: 20px;
+            color: #333;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1400px;
             margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
         }
 
-        h2 {
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .security-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-header h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        .bank-count {
+            background: rgba(255, 255, 255, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .banks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .bank-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bank-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .bank-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .bank-name {
+            font-size: 1.2em;
+            font-weight: 600;
             color: #2c3e50;
-            border-left: 5px solid #2c3e50;
+            margin-bottom: 12px;
             padding-left: 15px;
-            margin-top: 40px;
-            margin-bottom: 20px;
         }
 
-        p {
-            margin-bottom: 20px;
+        .bank-link {
+            display: block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-left: 15px;
+        }
+
+        .bank-link:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: scale(1.05);
+        }
+
+        .public-sector .section-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .public-sector .bank-card::before {
+            background: linear-gradient(180deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .public-sector .bank-link {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .public-sector .bank-link:hover {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+        }
+
+        .private-sector .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #00d4ff 100%);
+        }
+
+        .private-sector .bank-card::before {
+            background: linear-gradient(180deg, #667eea 0%, #00d4ff 100%);
+        }
+
+        .private-sector .bank-link {
+            background: linear-gradient(135deg, #667eea 0%, #00d4ff 100%);
+        }
+
+        .private-sector .bank-link:hover {
+            background: linear-gradient(135deg, #00d4ff 0%, #667eea 100%);
+        }
+
+        .sfb .section-header {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .sfb .bank-card::before {
+            background: linear-gradient(180deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .sfb .bank-link {
+            background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+        }
+
+        .sfb .bank-link:hover {
+            background: linear-gradient(135deg, #330867 0%, #30cfd0 100%);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
             color: #666;
         }
 
-        /* Custom CSS Table using Flexbox */
-        .custom-table {
-            display: flex;
-            flex-direction: column;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
+        footer p {
+            margin: 5px 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-left: 5px solid #ff6b6b;
+            padding: 20px;
+            border-radius: 10px;
             margin-bottom: 30px;
         }
 
-        .table-header {
-            display: flex;
-            background-color: var(--header-bg);
-            color: var(--header-text);
-            font-weight: bold;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+        .warning-box strong {
+            color: #d63031;
+            font-size: 1.1em;
         }
 
-        .table-row {
-            display: flex;
-            border-bottom: 1px solid var(--border-color);
-            transition: background-color 0.2s;
-        }
-
-        .table-row:last-child {
-            border-bottom: none;
-        }
-
-        /* Alternating row color */
-        .table-row:nth-child(even) {
-            background-color: var(--alt-row);
-        }
-
-        .table-row:hover {
-            background-color: #ebf2f7;
-        }
-
-        .cell {
-            padding: 12px 15px;
-            flex: 1;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Specific column widths */
-        .col-sn { flex: 0 0 60px; justify-content: center; }
-        .col-name { flex: 2; font-weight: 500; }
-        .col-url { flex: 2; }
-
-        a {
-            color: var(--link-color);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 650px) {
-            .table-header {
-                display: none; /* Hide headers on mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
             }
 
-            .table-row {
-                flex-direction: column;
-                padding: 10px 0;
+            h1 {
+                font-size: 1.8em;
             }
 
-            .cell {
-                width: 100%;
-                padding: 5px 20px;
+            .section-header h2 {
+                font-size: 1.4em;
             }
 
-            .col-sn { display: none; } /* Hide S.No on mobile for space */
-
-            .cell::before {
-                content: attr(data-label);
-                font-weight: bold;
-                width: 120px;
-                min-width: 120px;
-                font-size: 0.75rem;
-                color: #888;
-                text-transform: uppercase;
+            .banks-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>🏦 Indian Banks Directory</h1>
+            <p class="subtitle">Secure .bank.in Domain - RBI Mandated</p>
+            <div class="security-badge">🔒 VERIFIED SECURE DOMAINS</div>
+        </header>
 
-<div class="container">
-
-    <section>
-        <h2>1. Public Sector Banks (12)</h2>
-        <p>These government-owned banks have transitioned to the secure domain mandated by the RBI.</p>
-        
-        <div class="custom-table">
-            <div class="table-header">
-                <div class="cell col-sn">S.No</div>
-                <div class="cell col-name">Bank Name</div>
-                <div class="cell col-url">Official Website</div>
-            </div>
-            
-            <div class="table-row">
-                <div class="cell col-sn">1</div>
-                <div class="cell col-name" data-label="Bank Name">State Bank of India (SBI)</div>
-                <div class="cell col-url" data-label="Website"><a href="https://sbi.bank.in">sbi.bank.in</a></div>
-            </div>
-            <div class="table-row">
-                <div class="cell col-sn">2</div>
-                <div class="cell col-name" data-label="Bank Name">Bank of Baroda</div>
-                <div class="cell col-url" data-label="Website"><a href="https://bankofbaroda.bank.in">bankofbaroda.bank.in</a></div>
-            </div>
-            <div class="table-row">
-                <div class="cell col-sn">3</div>
-                <div class="cell col-name" data-label="Bank Name">Punjab National Bank (PNB)</div>
-                <div class="cell col-url" data-label="Website"><a href="https://pnb.bank.in">pnb.bank.in</a></div>
-            </div>
-            <div class="table-row">
-                <div class="cell col-sn">4</div>
-                <div class="cell col-name" data-label="Bank Name">Canara Bank</div>
-                <div class="cell col-url" data-label="Website"><a href="https://canarabank.bank.in">canarabank.bank.in</a></div>
-            </div>
-            <div class="table-row">
-                <div class="cell col-sn">5</div>
-                <div class="cell col-name" data-label="Bank Name">Union Bank of India</div>
-                <div class="cell col-url" data-label="Website"><a href="https://unionbankofindia.bank.in">unionbankofindia.bank.in</a></div>
-            </div>
+        <div class="warning-box">
+            <strong>⚠️ Security Notice:</strong> Always verify you're accessing the .bank.in domain. This is the official secure domain mandated by RBI to prevent phishing and fraud. Bookmark these links for safe access!
         </div>
-    </section>
 
-    <section>
-        <h2>2. Private Sector Banks (21)</h2>
-        <p>All scheduled private banks are now accessible via the .bank.in extension.</p>
-        
-        <div class="custom-table">
-            <div class="table-header">
-                <div class="cell col-sn">S.No</div>
-                <div class="cell col-name">Bank Name</div>
-                <div class="cell col-url">Official Website</div>
+        <!-- Public Sector Banks -->
+        <section class="section public-sector">
+            <div class="section-header">
+                <h2>Public Sector Banks</h2>
+                <span class="bank-count">12 Banks</span>
             </div>
-            
-            <div class="table-row">
-                <div class="cell col-sn">1</div>
-                <div class="cell col-name" data-label="Bank Name">HDFC Bank</div>
-                <div class="cell col-url" data-label="Website"><a href="https://hdfc.bank.in">hdfc.bank.in</a></div>
+            <div class="banks-grid">
+                <div class="bank-card">
+                    <div class="bank-name">State Bank of India (SBI)</div>
+                    <a href="https://sbi.bank.in" class="bank-link" target="_blank">sbi.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Bank of Baroda</div>
+                    <a href="https://bankofbaroda.bank.in" class="bank-link" target="_blank">bankofbaroda.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Punjab National Bank (PNB)</div>
+                    <a href="https://pnb.bank.in" class="bank-link" target="_blank">pnb.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Canara Bank</div>
+                    <a href="https://canarabank.bank.in" class="bank-link" target="_blank">canarabank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Union Bank of India</div>
+                    <a href="https://unionbankofindia.bank.in" class="bank-link" target="_blank">unionbankofindia.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Bank of India</div>
+                    <a href="https://bankofindia.bank.in" class="bank-link" target="_blank">bankofindia.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Indian Bank</div>
+                    <a href="https://indianbank.bank.in" class="bank-link" target="_blank">indianbank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Central Bank of India</div>
+                    <a href="https://centralbank.bank.in" class="bank-link" target="_blank">centralbank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Indian Overseas Bank (IOB)</div>
+                    <a href="https://iob.bank.in" class="bank-link" target="_blank">iob.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">UCO Bank</div>
+                    <a href="https://ucobank.bank.in" class="bank-link" target="_blank">ucobank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Bank of Maharashtra</div>
+                    <a href="https://bankofmaharashtra.bank.in" class="bank-link" target="_blank">bankofmaharashtra.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Punjab & Sind Bank</div>
+                    <a href="https://punjabandsindbank.bank.in" class="bank-link" target="_blank">punjabandsindbank.bank.in →</a>
+                </div>
             </div>
-            <div class="table-row">
-                <div class="cell col-sn">2</div>
-                <div class="cell col-name" data-label="Bank Name">ICICI Bank</div>
-                <div class="cell col-url" data-label="Website"><a href="https://icici.bank.in">icici.bank.in</a></div>
-            </div>
-            <div class="table-row">
-                <div class="cell col-sn">3</div>
-                <div class="cell col-name" data-label="Bank Name">Axis Bank</div>
-                <div class="cell col-url" data-label="Website"><a href="https://axis.bank.in">axis.bank.in</a></div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <h2>3. Small Finance Banks (SFBs)</h2>
-        <p>SFBs focused on financial inclusion have also migrated to the unified domain.</p>
-        
-        <div class="custom-table">
-            <div class="table-header">
-                <div class="cell col-sn">S.No</div>
-                <div class="cell col-name">Bank Name</div>
-                <div class="cell col-url">Official Website</div>
+        <!-- Private Sector Banks -->
+        <section class="section private-sector">
+            <div class="section-header">
+                <h2>Private Sector Banks</h2>
+                <span class="bank-count">21 Banks</span>
             </div>
-            
-            <div class="table-row">
-                <div class="cell col-sn">1</div>
-                <div class="cell col-name" data-label="Bank Name">AU Small Finance Bank</div>
-                <div class="cell col-url" data-label="Website"><a href="https://aubank.bank.in">aubank.bank.in</a></div>
+            <div class="banks-grid">
+                <div class="bank-card">
+                    <div class="bank-name">HDFC Bank</div>
+                    <a href="https://hdfc.bank.in" class="bank-link" target="_blank">hdfc.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">ICICI Bank</div>
+                    <a href="https://icici.bank.in" class="bank-link" target="_blank">icici.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Axis Bank</div>
+                    <a href="https://axis.bank.in" class="bank-link" target="_blank">axis.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Kotak Mahindra Bank</div>
+                    <a href="https://kotak.bank.in" class="bank-link" target="_blank">kotak.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">IndusInd Bank</div>
+                    <a href="https://indusind.bank.in" class="bank-link" target="_blank">indusind.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">IDFC FIRST Bank</div>
+                    <a href="https://idfcfirst.bank.in" class="bank-link" target="_blank">idfcfirst.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">YES Bank</div>
+                    <a href="https://yes.bank.in" class="bank-link" target="_blank">yes.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Bandhan Bank</div>
+                    <a href="https://bandhan.bank.in" class="bank-link" target="_blank">bandhan.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Federal Bank</div>
+                    <a href="https://federal.bank.in" class="bank-link" target="_blank">federal.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">IDBI Bank</div>
+                    <a href="https://idbi.bank.in" class="bank-link" target="_blank">idbi.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">South Indian Bank</div>
+                    <a href="https://southindianbank.bank.in" class="bank-link" target="_blank">southindianbank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Karnataka Bank</div>
+                    <a href="https://karnatakabank.bank.in" class="bank-link" target="_blank">karnatakabank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Karur Vysya Bank</div>
+                    <a href="https://kvb.bank.in" class="bank-link" target="_blank">kvb.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">RBL Bank</div>
+                    <a href="https://rbl.bank.in" class="bank-link" target="_blank">rbl.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">City Union Bank</div>
+                    <a href="https://cityunionbank.bank.in" class="bank-link" target="_blank">cityunionbank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">CSB Bank</div>
+                    <a href="https://csb.bank.in" class="bank-link" target="_blank">csb.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">DCB Bank</div>
+                    <a href="https://dcb.bank.in" class="bank-link" target="_blank">dcb.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Jammu & Kashmir Bank</div>
+                    <a href="https://jkbank.bank.in" class="bank-link" target="_blank">jkbank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Tamilnad Mercantile Bank</div>
+                    <a href="https://tmb.bank.in" class="bank-link" target="_blank">tmb.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Dhanlaxmi Bank</div>
+                    <a href="https://dhan.bank.in" class="bank-link" target="_blank">dhan.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Nainital Bank</div>
+                    <a href="https://nainitalbank.bank.in" class="bank-link" target="_blank">nainitalbank.bank.in →</a>
+                </div>
             </div>
-            <div class="table-row">
-                <div class="cell col-sn">2</div>
-                <div class="cell col-name" data-label="Bank Name">Equitas Small Finance Bank</div>
-                <div class="cell col-url" data-label="Website"><a href="https://equitas.bank.in">equitas.bank.in</a></div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-</div>
-<a>sks</a>
+        <!-- Small Finance Banks -->
+        <section class="section sfb">
+            <div class="section-header">
+                <h2>Small Finance Banks</h2>
+                <span class="bank-count">11 Banks</span>
+            </div>
+            <div class="banks-grid">
+                <div class="bank-card">
+                    <div class="bank-name">AU Small Finance Bank</div>
+                    <a href="https://aubank.bank.in" class="bank-link" target="_blank">aubank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Equitas Small Finance Bank</div>
+                    <a href="https://equitas.bank.in" class="bank-link" target="_blank">equitas.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Ujjivan Small Finance Bank</div>
+                    <a href="https://ujjivansfb.bank.in" class="bank-link" target="_blank">ujjivansfb.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Jana Small Finance Bank</div>
+                    <a href="https://janabank.bank.in" class="bank-link" target="_blank">janabank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Utkarsh Small Finance Bank</div>
+                    <a href="https://utkarsh.bank.in" class="bank-link" target="_blank">utkarsh.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">ESAF Small Finance Bank</div>
+                    <a href="https://esafbank.bank.in" class="bank-link" target="_blank">esafbank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Suryoday Small Finance Bank</div>
+                    <a href="https://suryoday.bank.in" class="bank-link" target="_blank">suryoday.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Capital Small Finance Bank</div>
+                    <a href="https://capitalbank.bank.in" class="bank-link" target="_blank">capitalbank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">North East Small Finance Bank</div>
+                    <a href="https://nesfb.bank.in" class="bank-link" target="_blank">nesfb.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Shivalik Small Finance Bank</div>
+                    <a href="https://shivalikbank.bank.in" class="bank-link" target="_blank">shivalikbank.bank.in →</a>
+                </div>
+                <div class="bank-card">
+                    <div class="bank-name">Unity Small Finance Bank</div>
+                    <a href="https://unity.bank.in" class="bank-link" target="_blank">unity.bank.in →</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>Total Banks: 44</strong> (12 Public + 21 Private + 11 Small Finance)</p>
+            <p>samim</p>
+            <p style="margin-top: 15px; color: #999; font-size: 0.9em;">Last Updated: January 2026</p>
+        </footer>
+    </div>
 </body>
-</html>
+                        </html>
