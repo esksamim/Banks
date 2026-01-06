@@ -1,39 +1,237 @@
-<h3 id="-1-public-sector-banks-12-"><strong>1. Public Sector Banks (12)</strong></h3>
-<p>These government-owned banks have transitioned to the secure domain mandated by the RBI.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">S.No</th>
-<th style="text-align:left">Bank Name</th>
-<th style="text-align:left">New Official Website (.bank.in)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">1</td>
-<td style="text-align:left">State Bank of India (SBI)</td>
-<td style="text-align:left"><a href="https://sbi.bank.in">sbi.bank.in</a></td>
-</tr>
-<tr>
-<td style="text-align:left">2</td>
-<td style="text-align:left">Bank of Baroda</td>
-<td style="text-align:left"><a href="https://bankofbaroda.bank.in">bankofbaroda.bank.in</a></td>
-</tr>
-<tr>
-<td style="text-align:left">3</td>
-<td style="text-align:left">Punjab National Bank (PNB)</td>
-<td style="text-align:left"><a href="https://pnb.bank.in">pnb.bank.in</a></td>
-</tr>
-<tr>
-<td style="text-align:left">4</td>
-<td style="text-align:left">Canara Bank</td>
-<td style="text-align:left"><a href="https://canarabank.bank.in">canarabank.bank.in</a></td>
-</tr>
-<tr>
-<td style="text-align:left">5</td>
-<td style="text-align:left">Union Bank of India</td>
-<td style="text-align:left"><a href="https://unionbankofindia.bank.in">unionbankofindia.bank.in</a></td>
-</tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Banks - Official .bank.in Domains</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --alt-row: #f4f7f9; /* Soft dark/grey for alternating rows */
+            --border-color: #e0e0e0;
+            --header-bg: #2c3e50;
+            --header-text: #ffffff;
+            --link-color: #0066cc;
+            --text-main: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-left: 5px solid #2c3e50;
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        /* Custom CSS Table using Flexbox */
+        .custom-table {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .table-header {
+            display: flex;
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .table-row {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.2s;
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        /* Alternating row color */
+        .table-row:nth-child(even) {
+            background-color: var(--alt-row);
+        }
+
+        .table-row:hover {
+            background-color: #ebf2f7;
+        }
+
+        .cell {
+            padding: 12px 15px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Specific column widths */
+        .col-sn { flex: 0 0 60px; justify-content: center; }
+        .col-name { flex: 2; font-weight: 500; }
+        .col-url { flex: 2; }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 650px) {
+            .table-header {
+                display: none; /* Hide headers on mobile */
+            }
+
+            .table-row {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+
+            .cell {
+                width: 100%;
+                padding: 5px 20px;
+            }
+
+            .col-sn { display: none; } /* Hide S.No on mobile for space */
+
+            .cell::before {
+                content: attr(data-label);
+                font-weight: bold;
+                width: 120px;
+                min-width: 120px;
+                font-size: 0.75rem;
+                color: #888;
+                text-transform: uppercase;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <section>
+        <h2>1. Public Sector Banks (12)</h2>
+        <p>These government-owned banks have transitioned to the secure domain mandated by the RBI.</p>
+        
+        <div class="custom-table">
+            <div class="table-header">
+                <div class="cell col-sn">S.No</div>
+                <div class="cell col-name">Bank Name</div>
+                <div class="cell col-url">Official Website</div>
+            </div>
+            
+            <div class="table-row">
+                <div class="cell col-sn">1</div>
+                <div class="cell col-name" data-label="Bank Name">State Bank of India (SBI)</div>
+                <div class="cell col-url" data-label="Website"><a href="https://sbi.bank.in">sbi.bank.in</a></div>
+            </div>
+            <div class="table-row">
+                <div class="cell col-sn">2</div>
+                <div class="cell col-name" data-label="Bank Name">Bank of Baroda</div>
+                <div class="cell col-url" data-label="Website"><a href="https://bankofbaroda.bank.in">bankofbaroda.bank.in</a></div>
+            </div>
+            <div class="table-row">
+                <div class="cell col-sn">3</div>
+                <div class="cell col-name" data-label="Bank Name">Punjab National Bank (PNB)</div>
+                <div class="cell col-url" data-label="Website"><a href="https://pnb.bank.in">pnb.bank.in</a></div>
+            </div>
+            <div class="table-row">
+                <div class="cell col-sn">4</div>
+                <div class="cell col-name" data-label="Bank Name">Canara Bank</div>
+                <div class="cell col-url" data-label="Website"><a href="https://canarabank.bank.in">canarabank.bank.in</a></div>
+            </div>
+            <div class="table-row">
+                <div class="cell col-sn">5</div>
+                <div class="cell col-name" data-label="Bank Name">Union Bank of India</div>
+                <div class="cell col-url" data-label="Website"><a href="https://unionbankofindia.bank.in">unionbankofindia.bank.in</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Private Sector Banks (21)</h2>
+        <p>All scheduled private banks are now accessible via the .bank.in extension.</p>
+        
+        <div class="custom-table">
+            <div class="table-header">
+                <div class="cell col-sn">S.No</div>
+                <div class="cell col-name">Bank Name</div>
+                <div class="cell col-url">Official Website</div>
+            </div>
+            
+            <div class="table-row">
+                <div class="cell col-sn">1</div>
+                <div class="cell col-name" data-label="Bank Name">HDFC Bank</div>
+                <div class="cell col-url" data-label="Website"><a href="https://hdfc.bank.in">hdfc.bank.in</a></div>
+            </div>
+            <div class="table-row">
+                <div class="cell col-sn">2</div>
+                <div class="cell col-name" data-label="Bank Name">ICICI Bank</div>
+                <div class="cell col-url" data-label="Website"><a href="https://icici.bank.in">icici.bank.in</a></div>
+            </div>
+            <div class="table-row">
+                <div class="cell col-sn">3</div>
+                <div class="cell col-name" data-label="Bank Name">Axis Bank</div>
+                <div class="cell col-url" data-label="Website"><a href="https://axis.bank.in">axis.bank.in</a></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Small Finance Banks (SFBs)</h2>
+        <p>SFBs focused on financial inclusion have also migrated to the unified domain.</p>
+        
+        <div class="custom-table">
+            <div class="table-header">
+                <div class="cell col-sn">S.No</div>
+                <div class="cell col-name">Bank Name</div>
+                <div class="cell col-url">Official Website</div>
+            </div>
+            
+            <div class="table-row">
+                <div class="cell col-sn">1</div>
+                <div class="cell col-name" data-label="Bank Name">AU Small Finance Bank</div>
+                <div class="cell col-url" data-label="Website"><a href="https://aubank.bank.in">aubank.bank.in</a></div>
+            </div>
+            <div class="table-row">
+                <div class="cell col-sn">2</div>
+                <div class="cell col-name" data-label="Bank Name">Equitas Small Finance Bank</div>
+                <div class="cell col-url" data-label="Website"><a href="https://equitas.bank.in">equitas.bank.in</a></div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+</body>
+</html>
 <tr>
 <td style="text-align:left">6</td>
 <td style="text-align:left">Bank of India</td>
